@@ -15,7 +15,8 @@
     "watch-server": "parcel watch src/server/index.tsx --target node",
     "build": "npm run build-client && npm run build-server",
     "build-client": "parcel build ./index.html --out-dir dist/static --public-url ./static",
-    "build-server": "parcel build src/server/index.tsx --target node"
+    "build-server": "parcel build src/server/index.tsx --target node",
+    "serve": "node dist/index.js"
   },
   "author": "",
   "license": "ISC",
