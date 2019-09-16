@@ -16,7 +16,8 @@
     "build": "npm run build-client && npm run build-server",
     "build-client": "parcel build ./index.html --out-dir dist/static --public-url ./static",
     "build-server": "parcel build src/server/index.tsx --target node",
-    "serve": "node dist/index.js"
+    "serve": "node dist/index.js",
+    "test": "eslint 'src/**'"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,14 @@
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^4.3.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "nodemon": "^1.19.1",
     "parcel": "^1.12.3",
     "typescript": "^3.5.3"
