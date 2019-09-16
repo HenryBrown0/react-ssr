@@ -1,9 +1,20 @@
 import React from 'react';
 import { render, hydrate } from 'react-dom';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 
 const app = document.getElementById('app');
 
-app.innerHTML === 'replace-me' 
-	? render(<App />, app)
-	: hydrate(<App />, app);
+const Client = () => {
+	return (
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	)
+}
+
+if(app.innerHTML === 'replace-me') {
+	render(<Client />, app);
+} else {
+	hydrate(<Client />, app);
+}
