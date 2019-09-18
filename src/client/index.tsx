@@ -13,7 +13,7 @@ const Client = () => {
 	);
 };
 
-if (app.innerHTML === 'replace-me') {
+if (app.innerHTML === '<!-- BODY -->') {
 	render(<Client />, app);
 } else {
 	hydrate(<Client />, app);

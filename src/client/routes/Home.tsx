@@ -1,6 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Container, Link } from '../styles';
 
-const App: React.FC = () => <Link to='/about/'>About</Link>;
+const Home: React.FC = () => (
+	<Container>
+		<h1>Home</h1>
+		<Link to='/about/'>About</Link>
+	</Container>
+);
 
-export default App;
+export default Home;

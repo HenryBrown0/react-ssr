@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Link } from '../styles';
 
-const About: React.FC = () => (
+const NotFound: React.FC = () => (
 	<Container>
-		<h1>About</h1>
+		<h1>Page not found</h1>
 		<Link to='/'>Home</Link>
 	</Container>
 );
 
-export default About;
+export default NotFound;
