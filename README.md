@@ -4,14 +4,14 @@
 
 ```
 Node.js v10.16.3
-npm v6.9.0
+npm v1.17.3
 ```
 
 ## Installation
 
 To install dependencies
 ```
-npm install
+yarn install
 ```
 
 ## Running locally
@@ -19,26 +19,27 @@ npm install
 ### Server
 
 ```
-npm run watch-server
-npm run start-server
+yarn run watch-server
+yarn run start-server
 ```
 
 ### Client
 
 ```
-npm start
+yarn start
 ```
 
 ## Deployment
 
 Building and running the project in production
 ```
-npm run build
-npm run serve
+yarn run build
+yarn run serve
 ```
 
 ## Built With
 
+* [Yarn](https://yarnpkg.com) - Package manager
 * [Parcel](https://parceljs.org/) - Web application bundler
 * [React](https://reactjs.org/) - User interface framework
 * [React Router Dom](https://reacttraining.com/react-router/) - Collection of navigational components
