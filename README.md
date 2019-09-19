@@ -4,7 +4,7 @@
 
 ```
 Node.js v10.16.3
-yarn v1.17.3
+Yarn v1.17.3
 ```
 
 ## Installation
