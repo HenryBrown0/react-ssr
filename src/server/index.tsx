@@ -3,7 +3,8 @@ import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { StaticRouterContext } from 'react-router';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import { HelmetProvider } from "react-helmet-async";
 import fs from 'fs';
 import path from 'path';
 import App from '../client/App';
@@ -13,24 +14,31 @@ const port: string = '8080' || process.env.PORT;
 const indexHtmlPath: string = path.join(__dirname, './static/index.html');
 const baseHtml: string = fs.readFileSync(indexHtmlPath).toString();
 
-const generateUp = (url: string) => {
+const generateMarkUp = (url: string) => {
 	const sheet = new ServerStyleSheet()
+	const helmetContext: any = {};
 	const context: StaticRouterContext = {};
 
 	let markUp: string = ReactDOMServer.renderToString(
 		<StyleSheetManager sheet={sheet.instance}>
-			<StaticRouter
-				location={url}
-				context={context}
-			>
-				<App />
+			<HelmetProvider context={helmetContext}>
+				<StaticRouter
+					location={url}
+					context={context}
+				>
+					<App />
 			</StaticRouter>
+			</HelmetProvider>
 		</StyleSheetManager>
 	);
 	const styleTags = sheet.getStyleTags()
 	sheet.seal()
 
-	let html = baseHtml.replace('<!-- HEAD -->', styleTags);
+	const head = Object.keys(helmetContext.helmet).reduce((head, key) => {
+		return head + helmetContext.helmet[key].toString()
+	}, '');
+
+	let html = baseHtml.replace('<!-- HEAD -->', (head + styleTags));
 	html = html.replace('<!-- BODY -->', markUp);
 
 	return { html, context };
@@ -39,7 +47,7 @@ const generateUp = (url: string) => {
 app.use('/static', express.static(path.join(__dirname, './static')));
 
 app.get('/*', (request, response) => {
-	const { html, context } = generateUp(request.url);
+	const { html, context } = generateMarkUp(request.url);
 
 	if (context.statusCode) {
 		return response.status(context.statusCode).send(html);
@@ -52,4 +60,6 @@ app.get('/*', (request, response) => {
 	return response.send(html);
 });
 
-app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
+app.listen(port, () => {
+	console.log(`Server running on http://localhost:${port}`)
+});

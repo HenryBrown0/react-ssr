@@ -19,8 +19,8 @@ yarn install
 ### Server
 
 ```
-yarn run watch-server
-yarn run start-server
+yarn watch-server
+yarn start-server
 ```
 
 ### Client
@@ -33,8 +33,8 @@ yarn start
 
 Building and running the project in production
 ```
-yarn run build
-yarn run serve
+yarn build
+yarn serve
 ```
 
 ## Built With
@@ -43,6 +43,7 @@ yarn run serve
 * [Parcel](https://parceljs.org/) - Web application bundler
 * [React](https://reactjs.org/) - User interface framework
 * [React Router Dom](https://reacttraining.com/react-router/) - Collection of navigational components
+* [React Helmet Async](https://github.com/staylor/react-helmet-async) - A document head manager for React
 
 ## Contributing
 

@@ -1,15 +1,18 @@
 import React from 'react';
 import { render, hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 
 const app = document.getElementById('app');
 
 const Client = () => {
 	return (
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
+		<HelmetProvider>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</HelmetProvider>
 	);
 };
 
