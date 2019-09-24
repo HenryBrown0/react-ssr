@@ -24,10 +24,21 @@
 		"@typescript-eslint"
 	],
 	"rules": {
-		"indent": ["error", "tab"],
-		"no-tabs": "off",
-		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-		"jsx-quotes": ["error", "prefer-single"],
-		"comma-dangle": "off"
+		"jsx-quotes": [2, "prefer-single"],
+		"comma-dangle": 0,
+		"react/jsx-filename-extension": [ 2, { "extensions": [".tsx"] } ],
+		"react/prop-types": 0,
+		"react/jsx-fragments": [2, "element"]
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".ts",
+					".tsx",
+					".js"
+				]
+			}
+		}
 	}
 }

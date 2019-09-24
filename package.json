@@ -18,7 +18,8 @@
     "build-server": "parcel build src/server/index.tsx --target node",
     "clean-build": "rm -rf .cache/ dist/",
     "serve": "node dist/index.js",
-    "test": "eslint 'src/**'"
+    "test": "eslint 'src/**'",
+    "test:fix": "eslint --fix 'src/**'"
   },
   "author": "",
   "license": "ISC",

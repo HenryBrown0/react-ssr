@@ -6,18 +6,16 @@ import App from './App';
 
 const app = document.getElementById('app');
 
-const Client = () => {
-	return (
-		<HelmetProvider>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</HelmetProvider>
-	);
-};
+const Client = () => (
+  <HelmetProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </HelmetProvider>
+);
 
 if (app.innerHTML === '<!-- BODY -->') {
-	render(<Client />, app);
+  render(<Client />, app);
 } else {
-	hydrate(<Client />, app);
+  hydrate(<Client />, app);
 }

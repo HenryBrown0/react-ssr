@@ -2,9 +2,8 @@ import express from 'express';
 import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import { StaticRouterContext } from 'react-router';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
-import { HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from 'react-helmet-async';
 import fs from 'fs';
 import path from 'path';
 import App from '../client/App';
@@ -15,51 +14,47 @@ const indexHtmlPath: string = path.join(__dirname, './static/index.html');
 const baseHtml: string = fs.readFileSync(indexHtmlPath).toString();
 
 const generateMarkUp = (url: string) => {
-	const sheet = new ServerStyleSheet()
-	const helmetContext: any = {};
-	const context: StaticRouterContext = {};
+  const sheet = new ServerStyleSheet();
+  const helmetContext: any = {};
+  const context: any = {};
 
-	let markUp: string = ReactDOMServer.renderToString(
-		<StyleSheetManager sheet={sheet.instance}>
-			<HelmetProvider context={helmetContext}>
-				<StaticRouter
-					location={url}
-					context={context}
-				>
-					<App />
-			</StaticRouter>
-			</HelmetProvider>
-		</StyleSheetManager>
-	);
-	const styleTags = sheet.getStyleTags()
-	sheet.seal()
+  const markUp: string = ReactDOMServer.renderToString(
+    <StyleSheetManager sheet={sheet.instance}>
+      <HelmetProvider context={helmetContext}>
+        <StaticRouter location={url} context={context}>
+          <App />
+        </StaticRouter>
+      </HelmetProvider>
+    </StyleSheetManager>
+  );
+  const styleTags = sheet.getStyleTags();
+  sheet.seal();
 
-	const head = Object.keys(helmetContext.helmet).reduce((head, key) => {
-		return head + helmetContext.helmet[key].toString()
-	}, '');
+  const head = Object.keys(helmetContext.helmet)
+    .reduce((acc, key) => acc + helmetContext.helmet[key].toString(), '');
 
-	let html = baseHtml.replace('<!-- HEAD -->', (head + styleTags));
-	html = html.replace('<!-- BODY -->', markUp);
+  let html = baseHtml.replace('<!-- HEAD -->', (head + styleTags));
+  html = html.replace('<!-- BODY -->', markUp);
 
-	return { html, context };
+  return { html, context };
 };
 
 app.use('/static', express.static(path.join(__dirname, './static')));
 
 app.get('/*', (request, response) => {
-	const { html, context } = generateMarkUp(request.url);
+  const { html, context } = generateMarkUp(request.url);
 
-	if (context.statusCode) {
-		return response.status(context.statusCode).send(html);
-	}
+  if (context.statusCode) {
+    return response.status(context.statusCode).send(html);
+  }
 
-	if (context.url) {
-		return response.redirect(301, context.url);
-	}
+  if (context.url) {
+    return response.redirect(301, context.url);
+  }
 
-	return response.send(html);
+  return response.send(html);
 });
 
 app.listen(port, () => {
-	console.log(`Server running on http://localhost:${port}`)
+  console.log(`Server running on http://localhost:${port}`); // eslint-disable-line
 });
