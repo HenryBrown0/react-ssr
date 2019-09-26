@@ -10,7 +10,7 @@ Yarn v1.17.3
 ## Installation
 
 To install dependencies
-```
+```sh
 yarn install
 ```
 
@@ -18,21 +18,21 @@ yarn install
 
 ### Server
 
-```
+```sh
 yarn watch-server
 yarn start-server
 ```
 
 ### Client
 
-```
+```sh
 yarn start
 ```
 
 ## Deployment
 
 Building and running the project in production
-```
+```sh
 yarn build
 yarn serve
 ```
