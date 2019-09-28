@@ -80,4 +80,4 @@ into the client using Reacts context API.
 ## License
 
 This project is licensed under the MIT License - see the
-[LICENSE](LICENSE.md) file for details
+[LICENSE](https://github.com/HenryBrown0/react-ssr/LICENSE.md) file for details
