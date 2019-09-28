@@ -1,4 +1,13 @@
-# Parcel SSR
+# React SSR
+
+*work in progress*
+
+## About
+
+This project does the following:
+- Renders static/dynamic content on the server into HTML/CSS
+- Client hydrates the server generated content and continues rendering the
+application
 
 ## Prerequisites
 
@@ -39,11 +48,12 @@ yarn serve
 
 ## Built With
 
-* [Yarn](https://yarnpkg.com) - Package manager
 * [Parcel](https://parceljs.org/) - Web application bundler
 * [React](https://reactjs.org/) - User interface framework
-* [React Router Dom](https://reacttraining.com/react-router/) - Collection of navigational components
 * [React Helmet Async](https://github.com/staylor/react-helmet-async) - A document head manager for React
+* [React Router Dom](https://reacttraining.com/react-router/) - Collection of navigational components
+* [TypeScript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+* [Yarn](https://yarnpkg.com) - Package manager
 
 ## Contributing
 
@@ -60,6 +70,12 @@ see the
 
 * **Henry Brown** - *Initial work* - 
 [HenryBrown0](https://github.com/HenryBrown0)
+
+## Special thanks
+
+Thanks to the Redux team for the [server side rendering guide](https://redux.js.org/recipes/server-rendering).
+I've used this as an example of how to get the server generated state hydrated
+into the client using Reacts context API.
 
 ## License
 

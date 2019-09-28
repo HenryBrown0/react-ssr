@@ -1,14 +1,16 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Container, Link } from '../styles';
+import React from 'react';
+import { ButtonContainer, Container, Link } from '../styles';
 
 const Home: React.FC = () => (
-  <Container>
+  <Container centreItems pageHeight={100}>
     <Helmet>
       <title>Home | Henry Brown</title>
     </Helmet>
     <h1>Home</h1>
-    <Link to='/about/'>About</Link>
+    <ButtonContainer>
+      <Link to='/readme/'>Read Me</Link>
+    </ButtonContainer>
   </Container>
 );
 

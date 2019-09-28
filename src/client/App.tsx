@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
-  Home, About, Status, NotFound
+  Home, NotFound, ReadMe, Status
 } from './routes';
 
 const App: React.FC = () => (
@@ -12,7 +12,7 @@ const App: React.FC = () => (
     </Helmet>
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route path='/about/' component={About} />
+      <Route path='/readme/' component={ReadMe} />
       <Status code={404}><NotFound /></Status>
     </Switch>
   </Fragment>

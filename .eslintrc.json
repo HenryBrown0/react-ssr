@@ -28,7 +28,21 @@
 		"comma-dangle": 0,
 		"react/jsx-filename-extension": [ 2, { "extensions": [".tsx"] } ],
 		"react/prop-types": 0,
-		"react/jsx-fragments": [2, "element"]
+		"react/jsx-fragments": [2, "element"],
+		"sort-imports": [
+			"error",
+			{
+				"ignoreCase": false,
+				"ignoreDeclarationSort": false,
+				"ignoreMemberSort": false,
+				"memberSyntaxSortOrder": [
+					"none",
+					"all",
+					"multiple",
+					"single"
+				]
+			}
+		]
 	},
 	"settings": {
 		"import/resolver": {
