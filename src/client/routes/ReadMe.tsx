@@ -55,6 +55,7 @@ const ReactMe: React.FC = () => {
       )}
       { readMe && (
         <Container>
+          {/* eslint-disable-next-line react/no-danger */}
           {readMe && <div dangerouslySetInnerHTML={{ __html: readMe }} />}
         </Container>
       )}
