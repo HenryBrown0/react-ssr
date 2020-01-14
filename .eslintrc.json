@@ -42,6 +42,13 @@
 					"single"
 				]
 			}
+		],
+		"import/extensions": [
+			"error",
+			{
+				"ts": "never",
+				"tsx": "never"
+			}
 		]
 	},
 	"settings": {
