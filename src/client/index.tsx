@@ -11,17 +11,17 @@ const preloadedState = window.__PRELOADED_STATE__; // eslint-disable-line
 delete window.__PRELOADED_STATE__; // eslint-disable-line
 
 const Client: React.FC = () => (
-  <HelmetProvider>
-    <BrowserRouter>
-      <ServerSideData.Provider value={preloadedState || {}}>
-        <App />
-      </ServerSideData.Provider>
-    </BrowserRouter>
-  </HelmetProvider>
+	<HelmetProvider>
+		<BrowserRouter>
+			<ServerSideData.Provider value={preloadedState || {}}>
+				<App />
+			</ServerSideData.Provider>
+		</BrowserRouter>
+	</HelmetProvider>
 );
 
 if (app.innerHTML === '<!-- BODY -->') {
-  render(<Client />, app);
+	render(<Client />, app);
 } else {
-  hydrate(<Client />, app);
+	hydrate(<Client />, app);
 }
