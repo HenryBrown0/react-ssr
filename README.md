@@ -12,8 +12,8 @@ application
 ## Prerequisites
 
 ```
-Node.js v10.16.3
-Yarn v1.17.3
+Node.js v12.14.1
+Yarn v1.21.1
 ```
 
 ## Installation
