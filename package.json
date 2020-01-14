@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Server side rendering static/dynamic content with ReactJS",
   "repository": {
-    "url": "https://github.com/HenryBrown0/react-ssr",
+    "url": "https://github.com/HenryBrown0/react-ssr"
   },
   "main": "index.js",
   "scripts": {
