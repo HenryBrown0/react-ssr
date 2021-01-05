@@ -22,7 +22,7 @@
 	"author": "HenryBrown0",
 	"license": "MIT",
 	"dependencies": {
-		"axios": "^0.19.0",
+		"axios": "^0.21.1",
 		"express": "^4.17.1",
 		"highlight.js": "^9.15.10",
 		"markdown-it": "^10.0.0",
